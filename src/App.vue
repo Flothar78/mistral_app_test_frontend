@@ -1,12 +1,8 @@
 <template>
-  <div class="title">
-    Résumé et Traduction 
-    <div>Avec Mistral 7B</div>
-  </div>
   <div class="container">
     <textarea
       v-model="articleText"
-      placeholder="Collez votre article ici..."
+      placeholder="Collez votre texte ici..."
       rows="10"
       :disabled="isLoading"
     ></textarea>
@@ -28,9 +24,10 @@
     </div>
 
     <div class="result">
-      <h2>Résumé Obtenu</h2>
       <div id="summary-output">
-        {{ summary || (isLoading ? "Analyse en cours..." : "Le résumé apparaîtra ici.") }}
+        {{
+          summary || (isLoading ? "Analyse en cours..." : "... le résumé apparaîtra ici")
+        }}
       </div>
     </div>
 
@@ -88,21 +85,18 @@ const generateSummary = async () => {
 
 <style scoped>
 .container {
-  /* border: 2px solid red; */
-  width: 50vw;
-  height: 70vh;
-  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 70vw;
+  max-width: 1000px;
+  height: 80vh;
+  margin: auto;
   padding: 20px;
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-}
-.title {
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  color: #007bff;
 }
 textarea {
   width: 100%;
@@ -112,25 +106,31 @@ textarea {
   border-radius: 6px;
   box-sizing: border-box;
   resize: vertical;
+
   font-size: 16px;
+}
+textarea::placeholder {
+  color: #007bff;
+  opacity: 1;
 }
 .controls {
   display: flex;
+  justify-content: space-around;
   gap: 20px;
   margin-bottom: 30px;
   align-items: center;
 }
 select,
 button {
+  max-width: fit-content;
   padding: 12px 8px;
   border-radius: 6px;
-  font-size: 16px;
 }
 select {
-  flex-grow: 1;
-  border: 1px solid #007bff;
+  flex-grow: 3;
 }
 button {
+  flex-grow: 2;
   background-color: #007bff;
   color: white;
   border: none;
@@ -144,17 +144,20 @@ button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
-
 #summary-output {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  border: 4px solid #007bff;
+  height: 200px;
+  overflow-y: auto;
+  max-width: 850px;
+  margin: auto;
   white-space: pre-wrap;
   background-color: #f9f9f9;
-  padding: 15px;
   border-radius: 8px;
-  min-height: 50px;
-  border: 1px solid #eee;
-  /* Style pour le texte d'attente */
-  color: #666;
-  font-style: italic;
+  color: black;
+  font-size: 16px;
 }
 .error-message {
   color: #dc3545;
@@ -167,7 +170,7 @@ button:disabled {
   }
   select,
   button {
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 </style>
