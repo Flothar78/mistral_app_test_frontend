@@ -106,8 +106,7 @@ textarea {
   border-radius: 6px;
   box-sizing: border-box;
   resize: vertical;
-
-  font-size: 16px;
+  font-size: 20px;
 }
 textarea::placeholder {
   color: #007bff;
@@ -125,6 +124,7 @@ button {
   max-width: fit-content;
   padding: 12px 8px;
   border-radius: 6px;
+  font-size: 16px;
 }
 select {
   flex-grow: 3;
@@ -157,7 +157,7 @@ button:disabled {
   background-color: #f9f9f9;
   border-radius: 8px;
   color: black;
-  font-size: 16px;
+  font-size: 20px;
 }
 .error-message {
   color: #dc3545;
@@ -165,6 +165,9 @@ button:disabled {
   margin-top: 15px;
 }
 @media (max-width: 768px) {
+  textarea {
+  font-size:16px;
+}
   .controls {
     flex-direction: column;
   }
@@ -172,5 +175,9 @@ button:disabled {
   button {
     font-size: 12px;
   }
+  
+  #summary-output {
+  font-size: 16px;
+}
 }
 </style>
