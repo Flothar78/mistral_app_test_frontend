@@ -99,18 +99,18 @@ html,
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
 }
 
-body {
-  overflow: hidden;
-}
+
 .page-container {
+  height: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: red;
+  background-color: var(--grey);
 }
 .container {
   font-family: Arial, sans-serif;
@@ -134,10 +134,10 @@ textarea {
   box-sizing: border-box;
   resize: vertical;
   font-size: 20px;
-  color: var(--white);
+  color: var(--black);
 }
 textarea::placeholder {
-  color: var(--shine);
+  color: var(--black);
   opacity: 1;
 }
 .controls {
@@ -155,7 +155,7 @@ button {
   font-size: 16px;
 }
 button {
-  background-color: var(--green);
+  background-color: var(--flash);
   color: var(--white);
   border: none;
   cursor: pointer;
@@ -163,12 +163,12 @@ button {
 }
 button:hover:not(:disabled) {
   background-color: var(--white);
-  color: var(--green);
+  color: var(--flash);
 }
 button:disabled {
   background-color: var(--white);
-  color: var(--green);
-  opacity: 0.3;
+  color: var(--flash);
+  opacity: 0.4;
   cursor: not-allowed;
   box-shadow: 1px 1px 3px var(--black);
 }
