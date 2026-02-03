@@ -1,39 +1,42 @@
 <template>
-  <div class="container">
-    <textarea
-      v-model="articleText"
-      placeholder="Collez votre texte ici..."
-      rows="10"
-      :disabled="isLoading"
-    ></textarea>
+  <div class="page-container">
+    <div class="container">
+      <textarea
+        v-model="articleText"
+        placeholder="Collez votre texte ici..."
+        rows="10"
+        :disabled="isLoading"
+      ></textarea>
 
-    <div class="controls">
-      <select v-model="selectedTone" :disabled="isLoading">
-        <option value="" disabled selected>Sélectionnez un ton</option>
-        <option value="factuel">Factuel / Objectif</option>
-        <option value="professionnel">Professionnel</option>
-        <option value="amusant">Amusant / Sarcastique</option>
-      </select>
+      <div class="controls">
+        <select v-model="selectedTone" :disabled="isLoading">
+          <option value="" disabled selected>Sélectionnez un ton</option>
+          <option value="factuel">Factuel / Objectif</option>
+          <option value="professionnel">Professionnel</option>
+          <option value="amusant">Amusant / Sarcastique</option>
+        </select>
 
-      <button
-        @click="generateSummary"
-        :disabled="isLoading || !articleText || !selectedTone"
-      >
-        {{ isLoading ? "Génération en cours..." : "Générer le Résumé" }}
-      </button>
-    </div>
-
-    <div class="result">
-      <div id="summary-output">
-        {{
-          summary || (isLoading ? "Analyse en cours..." : "... le résumé apparaîtra ici")
-        }}
+        <button
+          @click="generateSummary"
+          :disabled="isLoading || !articleText || !selectedTone"
+        >
+          {{ isLoading ? "Génération en cours..." : "Générer le Résumé" }}
+        </button>
       </div>
-    </div>
 
-    <p v-if="error" class="error-message">
-      {{ error }}
-    </p>
+      <div class="result">
+        <div id="summary-output">
+          {{
+            summary ||
+            (isLoading ? "Analyse en cours..." : "... le résumé apparaîtra ici")
+          }}
+        </div>
+      </div>
+
+      <p v-if="error" class="error-message">
+        {{ error }}
+      </p>
+    </div>
   </div>
 </template>
 
@@ -86,10 +89,28 @@ const generateSummary = async () => {
 <style>
 :root {
   --black: #040222;
+  --grey: #3b3b3b;
   --white: #fafaff;
   --flash: #d81e5b;
-  --blue: #1b998b;
+  --green: #1b998b;
   --shine: #f4e04d;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  overflow: hidden;
+}
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
 }
 .container {
   font-family: Arial, sans-serif;
@@ -101,22 +122,22 @@ const generateSummary = async () => {
   height: 80vh;
   margin: auto;
   padding: 20px;
-  background: var(--white);
+  background: var(--black);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 }
 textarea {
   width: 100%;
   padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
+  border: 4px dashed var(--green);
   border-radius: 6px;
   box-sizing: border-box;
   resize: vertical;
   font-size: 20px;
+  color: var(--white);
 }
 textarea::placeholder {
-  color: var(--blue);
+  color: var(--shine);
   opacity: 1;
 }
 .controls {
@@ -128,17 +149,13 @@ textarea::placeholder {
 }
 select,
 button {
-  max-width: fit-content;
+  width: 33%;
   padding: 12px 8px;
   border-radius: 6px;
   font-size: 16px;
 }
-select {
-  flex-grow: 3;
-}
 button {
-  flex-grow: 2;
-  background-color: var(--blue);
+  background-color: var(--green);
   color: var(--white);
   border: none;
   cursor: pointer;
@@ -146,11 +163,11 @@ button {
 }
 button:hover:not(:disabled) {
   background-color: var(--white);
-  color: var(--blue); 
+  color: var(--green);
 }
 button:disabled {
   background-color: var(--white);
-  color: var(--blue);
+  color: var(--green);
   opacity: 0.3;
   cursor: not-allowed;
   box-shadow: 1px 1px 3px var(--black);
@@ -159,16 +176,15 @@ button:disabled {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  border: 4px solid var(--shine);
+  border: 4px solid var(--green);
   height: 200px;
   overflow-y: auto;
   max-width: 850px;
   margin: auto;
   white-space: pre-wrap;
-  background-color: var(--white );
+  background-color: var(--black);
   border-radius: 8px;
-  color: var(--flash);
-  font-size: 20px;
+  color: var(--green);
 }
 .error-message {
   color: var(--flash);
