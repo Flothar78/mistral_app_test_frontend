@@ -83,7 +83,14 @@ const generateSummary = async () => {
 };
 </script>
 
-<style scoped>
+<style>
+:root {
+  --black: #040222;
+  --white: #fafaff;
+  --flash: #d81e5b;
+  --blue: #1b998b;
+  --shine: #f4e04d;
+}
 .container {
   font-family: Arial, sans-serif;
   display: flex;
@@ -94,7 +101,7 @@ const generateSummary = async () => {
   height: 80vh;
   margin: auto;
   padding: 20px;
-  background-color: white;
+  background: var(--white);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 }
@@ -109,7 +116,7 @@ textarea {
   font-size: 20px;
 }
 textarea::placeholder {
-  color: #007bff;
+  color: var(--blue);
   opacity: 1;
 }
 .controls {
@@ -131,43 +138,47 @@ select {
 }
 button {
   flex-grow: 2;
-  background-color: #007bff;
-  color: white;
+  background-color: var(--blue);
+  color: var(--white);
   border: none;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 button:hover:not(:disabled) {
-  background-color: #0056b3;
+  background-color: var(--white);
+  color: var(--blue); 
 }
 button:disabled {
-  background-color: #ccc;
+  background-color: var(--white);
+  color: var(--blue);
+  opacity: 0.3;
   cursor: not-allowed;
+  box-shadow: 1px 1px 3px var(--black);
 }
 #summary-output {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  border: 4px solid #007bff;
+  border: 4px solid var(--shine);
   height: 200px;
   overflow-y: auto;
   max-width: 850px;
   margin: auto;
   white-space: pre-wrap;
-  background-color: #f9f9f9;
+  background-color: var(--white );
   border-radius: 8px;
-  color: black;
+  color: var(--flash);
   font-size: 20px;
 }
 .error-message {
-  color: #dc3545;
+  color: var(--flash);
   font-weight: bold;
   margin-top: 15px;
 }
 @media (max-width: 768px) {
   textarea {
-  font-size:16px;
-}
+    font-size: 16px;
+  }
   .controls {
     flex-direction: column;
   }
@@ -175,9 +186,9 @@ button:disabled {
   button {
     font-size: 12px;
   }
-  
+
   #summary-output {
-  font-size: 16px;
-}
+    font-size: 16px;
+  }
 }
 </style>
