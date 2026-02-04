@@ -144,7 +144,7 @@ textarea::placeholder {
   transform: translate(-50%, -50%);
   text-align: center;
   color: var(--flash);
-  text-shadow: 20px -40px 2px var(--shine);
+  text-shadow: 1px -1px 2px var(--shine);
 }
 .controls {
   display: flex;
@@ -208,7 +208,8 @@ button:disabled {
   }
   select,
   button {
-    font-size: 12px;
+    width: 80%;
+    font-size: 14px;
   }
 
   #summary-output {
