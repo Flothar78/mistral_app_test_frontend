@@ -104,13 +104,23 @@ body {
 }
 
 .page-container {
+  position: relative;
   height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.page-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(
-    210deg,
+    200deg,
     var(--flash),
     var(--flash),
     var(--shine),
@@ -119,20 +129,26 @@ body {
     var(--shine),
     var(--flash)
   );
+  opacity: 0.6;
+  z-index: 1;
 }
+
 .container {
+  position: relative;
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 70vw;
-  max-width: 1000px;
+  max-width: 1100px;
   height: 90vh;
   margin: auto;
   padding: 20px;
   background: var(--black);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  opacity: 1;
+  z-index: 2;
 }
 textarea {
   border: 4px dashed var(--green);
