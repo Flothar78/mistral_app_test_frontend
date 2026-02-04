@@ -109,7 +109,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--grey);
+  background: linear-gradient(
+    210deg,
+    var(--flash),
+    var(--flash),
+    var(--shine),
+    var(--green),
+    var(--shine),
+    var(--shine),
+    var(--flash)
+  );
 }
 .container {
   font-family: Arial, sans-serif;
@@ -131,7 +140,7 @@ textarea {
   box-sizing: border-box;
   width: 100%;
   padding: 15px;
-  background-color: var(--black);
+  background-color: var(--grey);
   color: var(--white);
   border-radius: 6px;
   resize: vertical;
@@ -206,6 +215,11 @@ button:disabled {
   .controls {
     flex-direction: column;
   }
+  /* select {
+    position: relative;
+    max-width: 100%;
+  } */
+
   select,
   button {
     width: 80%;
