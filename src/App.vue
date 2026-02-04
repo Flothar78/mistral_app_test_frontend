@@ -103,7 +103,6 @@ body {
   width: 100vw;
 }
 
-
 .page-container {
   height: 100vh;
   width: 100vw;
@@ -119,7 +118,7 @@ body {
   justify-content: space-between;
   width: 70vw;
   max-width: 1000px;
-  height: 80vh;
+  height: 90vh;
   margin: auto;
   padding: 20px;
   background: var(--black);
@@ -127,24 +126,31 @@ body {
   border-radius: 10px;
 }
 textarea {
+  border: 4px dashed var(--green);
+  position: relative;
+  box-sizing: border-box;
   width: 100%;
   padding: 15px;
-  border: 4px dashed var(--green);
+  background-color: var(--black);
+  color: var(--white);
   border-radius: 6px;
-  box-sizing: border-box;
   resize: vertical;
   font-size: 20px;
-  color: var(--black);
 }
 textarea::placeholder {
-  color: var(--black);
-  opacity: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--flash);
+  text-shadow: 20px -40px 2px var(--shine);
 }
 .controls {
   display: flex;
   justify-content: space-around;
   gap: 20px;
-  margin-bottom: 30px;
+  margin: 30px 0;
   align-items: center;
 }
 select,
@@ -173,18 +179,20 @@ button:disabled {
   box-shadow: 1px 1px 3px var(--black);
 }
 #summary-output {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
   border: 4px solid var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 200px;
-  overflow-y: auto;
   max-width: 850px;
   margin: auto;
-  white-space: pre-wrap;
-  background-color: var(--black);
-  border-radius: 8px;
+  padding: 20px;
+  background-color: var(--white);
   color: var(--green);
+  overflow-y: auto;
+  white-space: pre-wrap;
+  font-size: 1.3rem;
+  border-radius: 8px;
 }
 .error-message {
   color: var(--flash);
